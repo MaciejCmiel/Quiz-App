@@ -3,6 +3,7 @@ package com.example.macx.quizapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -24,6 +25,9 @@ public class TrueFalseActivity extends AppCompatActivity {
     View singleChoice;
     View fillIn;
 
+    String mCheckedAnswer;
+    String answer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,31 +40,26 @@ public class TrueFalseActivity extends AppCompatActivity {
         fillIn = findViewById(R.id.fill_in_option);
 
 
+        questions.add(new Question("Stive Jobs is the founder of Microsoft", "False"));
+        questions.add(new Question("Albert Einstein failed every subject in school that wasn't math or physics.", "True"));
+        questions.add(new Question("Bill Gates is the founder of Microsoft.", "True"));
+        questions.add(new Question("Tea has more caffeine than soda and coffee", "False"));
+        questions.add(new Question("Andrzej Duda is President of Poland", "True"));
+        questions.add(new Question("Antoni Macierewicz is Polish Prime Minister", "False"));
+        questions.add(new Question("Earth is the 3rd planet in solar system", "True"));
 
-            questions.add(new Question("Stive Jobs is the founder of Microsoft", "no"));
-            questions.add(new Question("Albert Einstein failed every subject in school that wasn't math or physics.", "yes"));
-            questions.add(new Question("Bill Gates is the founder of Microsoft.", "yes"));
-            questions.add(new Question("Tea has more caffeine than soda and coffee", "no"));
-            questions.add(new Question("Andrzej Duda is President of Poland", "yes"));
-            questions.add(new Question("Antoni Macierewicz is Polish Prime Minister", "no"));
-            questions.add(new Question("Earth is the 3rd planet in solar system", "yes"));
 
+        singleChoice.setVisibility(View.GONE);
+        fillIn.setVisibility(View.GONE);
 
-            singleChoice.setVisibility(View.GONE);
-            fillIn.setVisibility(View.GONE);
+        Random generator = new Random();
+        int rand = generator.nextInt(questions.size());
 
-            Random generator = new Random();
-            int rand = generator.nextInt(questions.size());
+        TextView questionTextView = findViewById(R.id.question_text_view);
+        questionTextView.setText(questions.get(rand).getQuestion());
 
-            TextView questionTextView = findViewById(R.id.question_text_view);
-            questionTextView.setText(questions.get(rand).getQuestion());
-
-            //Get the good answer from random selected question
-            String answer = questions.get(rand).getAnswer();
-
-            Button trueButton = findViewById(R.id.radio_button_true);
-            Button falseButton = findViewById(R.id.radio_button_false);
-
+        //Get the good answer from random selected question
+        answer = questions.get(rand).getAnswer();
 
 
         Button backMenu = findViewById(R.id.back_to_menu);
@@ -69,8 +68,8 @@ public class TrueFalseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent timeTableIntent = new Intent(TrueFalseActivity.this, MainActivity.class);
-                startActivity(timeTableIntent);
+                Intent backIntent = new Intent(TrueFalseActivity.this, MainActivity.class);
+                startActivity(backIntent);
             }
         });
 
@@ -81,12 +80,33 @@ public class TrueFalseActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 TextView toastText = (TextView) view;
-                Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+
+                int radioId = trueFalse.getCheckedRadioButtonId();
+                Log.i(TrueFalseActivity.class.getName(), "TEST: " + radioId);
+
+                radioButton = findViewById(radioId);
+
+                mCheckedAnswer = radioButton.getText().toString();
+
+                Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + answer);
+
+                if (mCheckedAnswer.equals(answer)) {
+                    Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+                }
+
 
                 Intent typeOfQuizIntent = new Intent(TrueFalseActivity.this, TrueFalseActivity.class);
                 startActivity(typeOfQuizIntent);
             }
         });
+    }
+
+    public void checkButton (View view){
+        int radioId = trueFalse.getCheckedRadioButtonId();
+
+        radioButton = findViewById(radioId);
     }
 
 
