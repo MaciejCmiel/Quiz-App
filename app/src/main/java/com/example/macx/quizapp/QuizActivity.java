@@ -33,10 +33,14 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (chosenType == 1) {
-            questions.add(new Question("Stive Jobs is the founder of Microsoft", "false"));
+            questions.add(new Question("Stive Jobs is the founder of Microsoft", "no"));
             questions.add(new Question("Albert Einstein failed every subject in school that wasn't math or physics.", "yes"));
             questions.add(new Question("Bill Gates is the founder of Microsoft.", "yes"));
             questions.add(new Question("Tea has more caffeine than soda and coffee", "no"));
+            questions.add(new Question("Andrzej Duda is President of Poland", "yes"));
+            questions.add(new Question("Antoni Macierewicz is Polish Prime Minister", "no"));
+            questions.add(new Question("Earth is the 3rd planet in solar system", "yes"));
+
 
             singleChoice.setVisibility(View.GONE);
             fillIn.setVisibility(View.GONE);
@@ -61,6 +65,12 @@ public class QuizActivity extends AppCompatActivity {
             questions.add(new Question("Who is Poland president?", "Andrzej Duda"));
             questions.add(new Question(
                     "Who has invented the long-lasting, practical electric light bulb?", "Thomas Edison"));
+            questions.add(new Question("Who was US President in 1961 – 1963", "John F. Kennedy"));
+            questions.add(new Question("American businessman, founder of Microsoft", "Bill Gates"));
+            questions.add(new Question("British Prime Minister 1979 – 1990", "Margaret Thatcher "));
+            questions.add(new Question("British monarch since 1954", "Queen Elizabeth II"));
+            questions.add(new Question("Businessman, politician, President of United States", "Donald Trump"));
+            questions.add(new Question("The 264th Pope of the Catholic Church from 16 October 1978", "John Paul II"));
 
             trueFalse.setVisibility(View.GONE);
             fillIn.setVisibility(View.GONE);
@@ -102,6 +112,13 @@ public class QuizActivity extends AppCompatActivity {
             questions.add(new Question("Assassination of Abraham Lincoln.", "1865"));
             questions.add(new Question("Beginning of the American Civil War.", "1861"));
             questions.add(new Question("Roentgen discovered X-Rays.", "1895"));
+            questions.add(new Question("Chinese Revolution.", "1911"));
+            questions.add(new Question("Beginning of World War I.", "1914"));
+            questions.add(new Question("End of World War I.", "1918"));
+            questions.add(new Question("Yuri Gagarin of USSR becomes the first spaceman.", "1961"));
+            questions.add(new Question("The Hundred years War broke out.", "1338"));
+            questions.add(new Question("Discovery of America by Columbus.", "1492"));
+
 
             trueFalse.setVisibility(View.GONE);
             singleChoice.setVisibility(View.GONE);
