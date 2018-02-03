@@ -10,15 +10,10 @@ public class Question {
 
     private String mAnswer;
 
-    /**
-     * number of points for good answer
-     */
-    private int mPoints;
 
     public Question(String question, String answer) {
         mQuestion = question;
         mAnswer = answer;
-        mPoints = 0;
     }
 
     public String getQuestion() {
@@ -29,15 +24,4 @@ public class Question {
         return mAnswer;
     }
 
-    public int getPoints() {
-        return mPoints;
-    }
-
-    public void setPoints(boolean sign) {
-        if (sign) {
-            mPoints++;
-        } else {
-            mPoints--;
-        }
-    }
 }
