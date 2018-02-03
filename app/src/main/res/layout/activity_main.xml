@@ -24,19 +24,19 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/true_false_text"
+            android:id="@+id/true_false_text_view"
             style="@style/CategoryStyle"
             android:background="@drawable/type_of_quiz"
             android:text="@string/true_false" />
 
         <TextView
-            android:id="@+id/single_choice_text"
+            android:id="@+id/single_choice_text_view"
             style="@style/CategoryStyle"
             android:background="@drawable/type_of_quiz"
             android:text="@string/single_choice" />
 
         <TextView
-            android:id="@+id/fill_in_text"
+            android:id="@+id/fill_in_text_view"
             style="@style/CategoryStyle"
             android:background="@drawable/type_of_quiz"
             android:text="@string/fill_in_the_blank" />

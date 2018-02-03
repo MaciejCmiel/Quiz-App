@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Quiz App</string>
+    <string name="quiz_activity">Quiz</string>
+
 
     <string name="true_false">True / False</string>
     <string name="single_choice">Single choice</string>

@@ -1,7 +1,10 @@
 package com.example.macx.quizapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +12,44 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView trueFalse = (TextView) findViewById(R.id.true_false_text_view);
+        TextView singleChoice = (TextView) findViewById(R.id.single_choice_text_view);
+        TextView fillIn = (TextView) findViewById(R.id.fill_in_text_view);
+
+
+        trueFalse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // create new intent to open quiz activity
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
+                typeOfQuizIntent.putExtra("TYPE", "trueFalse");
+
+                startActivity(typeOfQuizIntent);
+            }
+        });
+
+        singleChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // create new intent to open quiz activity
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
+                typeOfQuizIntent.putExtra("TYPE", "singleChoice");
+
+                startActivity(typeOfQuizIntent);
+            }
+        });
+
+        fillIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // create new intent to open quiz activity
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
+                typeOfQuizIntent.putExtra("TYPE", "fillIn");
+
+                startActivity(typeOfQuizIntent);
+            }
+        });
     }
 }
