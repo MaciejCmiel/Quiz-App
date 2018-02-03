@@ -1,9 +1,11 @@
 package com.example.macx.quizapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         boolean mYesNoAnswer;
-        int chosenType = getIntent().getIntExtra("TYPE", 1);
+        final int chosenType = getIntent().getIntExtra("TYPE", 1);
 
         ArrayList<Question> questions = new ArrayList<Question>();
 
@@ -113,6 +115,32 @@ public class QuizActivity extends AppCompatActivity {
             String answer = questions.get(rand).getAnswer();
 
         }
+
+        Button backMenu = findViewById(R.id.back_to_menu);
+
+        backMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent timeTableIntent = new Intent(QuizActivity.this, MainActivity.class);
+                startActivity(timeTableIntent);
+            }
+        });
+
+        Button checkAnswer = findViewById(R.id.check_answer);
+
+        checkAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //TODO: add checking answer
+
+                Intent typeOfQuizIntent = new Intent(QuizActivity.this, QuizActivity.class);
+                typeOfQuizIntent.putExtra("TYPE", chosenType);
+                startActivity(typeOfQuizIntent);
+            }
+        });
     }
+
 
 }
