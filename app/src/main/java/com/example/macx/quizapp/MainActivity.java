@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create new intent to open quiz activity
-                Intent typeOfQuizIntent = new Intent(MainActivity.this, SingleAnswerActivity.class);
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, SingleChoiceActivity.class);
 
                 startActivity(typeOfQuizIntent);
             }
