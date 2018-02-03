@@ -16,27 +16,74 @@
         android:textColor="@android:color/black"
         tools:text="Question: Why the sky is blue?" />
 
-    <RadioGroup
-        android:id="@+id/true_false_option"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:layout_weight="3">
 
+        <RadioGroup
+            android:id="@+id/single_choice_option"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/first_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp" />
+
+            <RadioButton
+                android:id="@+id/second_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp" />
+            <RadioButton
+                android:id="@+id/third_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/true_false_option"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_button_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/radio_button_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:text="No" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/fill_in_option"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="Yes" />
+            android:layout_margin="32dp"
+            android:hint="Answer"
+            android:inputType="text"
+            android:textAlignment="center"/>
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="No" />
-    </RadioGroup>
+    </RelativeLayout>
+
+
+
 </LinearLayout>
