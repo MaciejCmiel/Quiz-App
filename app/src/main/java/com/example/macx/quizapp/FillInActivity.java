@@ -23,6 +23,7 @@ public class FillInActivity extends AppCompatActivity {
     View singleChoice;
     View fillIn;
 
+    // variable to store correct answer
     String mAnswer;
 
     @Override
@@ -50,9 +51,11 @@ public class FillInActivity extends AppCompatActivity {
         questions.add(new Question("Discovery of America by Columbus.", "1492"));
 
 
+        // hide redundant view groups
         trueFalse.setVisibility(View.GONE);
         singleChoice.setVisibility(View.GONE);
 
+        //use Random class to draw by lot number from 0 to size of question ArrayList
         Random generator = new Random();
         int rand = generator.nextInt(questions.size());
 
@@ -61,30 +64,32 @@ public class FillInActivity extends AppCompatActivity {
 
          mAnswer = questions.get(rand).getAnswer();
 
-
+        //Find the Button and Set click listener on that Button
         Button backMenu = findViewById(R.id.back_to_menu);
-
         backMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent timeTableIntent = new Intent(FillInActivity.this, MainActivity.class);
-                startActivity(timeTableIntent);
+                // Create a new intent to open the {@link MainActivity}
+                Intent backToMenu = new Intent(FillInActivity.this, MainActivity.class);
+                startActivity(backToMenu);
             }
         });
 
+        //Find the Button checking answer and Set click listener on that Button
         Button checkAnswer = findViewById(R.id.check_answer);
-
         checkAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // check if user answer is equal to correct answer
+                // and inform user about good or wrong answer
                 if(mAnswer.equals(getAnswer())){
                     Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
                 }
-
+                // Create a new intent to open again FillInActivity with another question
                 Intent typeOfQuizIntent = new Intent(FillInActivity.this, FillInActivity.class);
                 startActivity(typeOfQuizIntent);
             }

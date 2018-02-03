@@ -25,8 +25,10 @@ public class TrueFalseActivity extends AppCompatActivity {
     View singleChoice;
     View fillIn;
 
+    //variable to store user answer
     String mCheckedAnswer;
-    String answer;
+    // variable to store correct answer
+    String mAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,7 @@ public class TrueFalseActivity extends AppCompatActivity {
         questionTextView.setText(questions.get(rand).getQuestion());
 
         //Get the good answer from random selected question
-        answer = questions.get(rand).getAnswer();
+        mAnswer = questions.get(rand).getAnswer();
 
 
         Button backMenu = findViewById(R.id.back_to_menu);
@@ -79,33 +81,33 @@ public class TrueFalseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                TextView toastText = (TextView) view;
-
+                //get the id of checked radio button, find it, and get Text from it
                 int radioId = trueFalse.getCheckedRadioButtonId();
-                Log.i(TrueFalseActivity.class.getName(), "TEST: " + radioId);
-
                 radioButton = findViewById(radioId);
-
                 mCheckedAnswer = radioButton.getText().toString();
 
-                Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + answer);
+                Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + mAnswer);
 
-                if (mCheckedAnswer.equals(answer)) {
+                // check if user answer is equal to correct answer and inform about it by Toast message
+                if (mCheckedAnswer.equals(mAnswer)) {
                     Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
                 }
 
-
+                // Create a new intent to open again TrueFalseActivity with another question
                 Intent typeOfQuizIntent = new Intent(TrueFalseActivity.this, TrueFalseActivity.class);
                 startActivity(typeOfQuizIntent);
             }
         });
     }
 
+    /**
+     * public method to check Button
+     * @param view
+     */
     public void checkButton (View view){
         int radioId = trueFalse.getCheckedRadioButtonId();
-
         radioButton = findViewById(radioId);
     }
 

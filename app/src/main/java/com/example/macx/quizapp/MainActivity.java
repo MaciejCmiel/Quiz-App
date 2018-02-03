@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // create new intent to open quiz activity
+                // create new intent to open TrueFalseActivity activity
                 Intent typeOfQuizIntent = new Intent(MainActivity.this, TrueFalseActivity.class);
                 startActivity(typeOfQuizIntent);
             }
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         singleChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // create new intent to open quiz activity
+                // create new intent to open SingleCgoiceActivity activity
                 Intent typeOfQuizIntent = new Intent(MainActivity.this, SingleChoiceActivity.class);
 
                 startActivity(typeOfQuizIntent);
