@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // create new intent to open quiz activity
                 Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", "trueFalse");
+                typeOfQuizIntent.putExtra("TYPE", 1);
 
                 startActivity(typeOfQuizIntent);
             }
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // create new intent to open quiz activity
                 Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", "singleChoice");
+                typeOfQuizIntent.putExtra("TYPE", 2);
 
                 startActivity(typeOfQuizIntent);
             }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // create new intent to open quiz activity
                 Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", "fillIn");
+                typeOfQuizIntent.putExtra("TYPE", 3);
 
                 startActivity(typeOfQuizIntent);
             }

@@ -6,7 +6,7 @@ package com.example.macx.quizapp;
 
 public class Question {
 
-    private String mWord;
+    private String mQuestion;
 
     private String mAnswer;
 
@@ -16,13 +16,13 @@ public class Question {
     private int mPoints;
 
     public Question(String question, String answer) {
-        mWord = question;
+        mQuestion = question;
         mAnswer = answer;
         mPoints = 0;
     }
 
-    public String getWord() {
-        return mWord;
+    public String getQuestion() {
+        return mQuestion;
     }
 
     public String getAnswer() {
