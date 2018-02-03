@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // create new intent to open quiz activity
-                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", 1);
-
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, TrueFalseActivity.class);
                 startActivity(typeOfQuizIntent);
             }
         });
@@ -34,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create new intent to open quiz activity
-                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", 2);
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, SingleAnswerActivity.class);
 
                 startActivity(typeOfQuizIntent);
             }
@@ -44,10 +41,8 @@ public class MainActivity extends AppCompatActivity {
         fillIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // create new intent to open quiz activity
-                Intent typeOfQuizIntent = new Intent(MainActivity.this, QuizActivity.class);
-                typeOfQuizIntent.putExtra("TYPE", 3);
-
+                // create new intent to open FillIn activity
+                Intent typeOfQuizIntent = new Intent(MainActivity.this, FillInActivity.class);
                 startActivity(typeOfQuizIntent);
             }
         });
