@@ -31,6 +31,8 @@
                 android:id="@+id/first_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+
                 android:layout_gravity="center"
                 android:layout_margin="8dp" />
 
@@ -38,6 +40,8 @@
                 android:id="@+id/second_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+
                 android:layout_gravity="center"
                 android:layout_margin="8dp" />
 
@@ -45,6 +49,8 @@
                 android:id="@+id/third_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+
                 android:layout_gravity="center"
                 android:layout_margin="8dp" />
 
@@ -63,12 +69,14 @@
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:onClick="checkButton"
+                android:textAppearance="?android:textAppearanceMedium"
                 android:text="@string/tekst_true" />
 
             <RadioButton
                 android:id="@+id/radio_button_false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:onClick="checkButton"
