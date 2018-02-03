@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +23,8 @@ public class FillInActivity extends AppCompatActivity {
     View singleChoice;
     View fillIn;
 
+    String mAnswer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,6 @@ public class FillInActivity extends AppCompatActivity {
         trueFalse = findViewById(R.id.true_false_option);
         singleChoice = findViewById(R.id.single_choice_option);
         fillIn = findViewById(R.id.fill_in_option);
-
 
 
         questions.add(new Question("Battle of Trafalagar.", "1805"));
@@ -58,8 +59,7 @@ public class FillInActivity extends AppCompatActivity {
         TextView questionTextView = findViewById(R.id.question_text_view);
         questionTextView.setText(questions.get(rand).getQuestion());
 
-        String answer = questions.get(rand).getAnswer();
-
+         mAnswer = questions.get(rand).getAnswer();
 
 
         Button backMenu = findViewById(R.id.back_to_menu);
@@ -79,8 +79,11 @@ public class FillInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                TextView toastText = (TextView) view;
-                Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                if(mAnswer.equals(getAnswer())){
+                    Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+                }
 
                 Intent typeOfQuizIntent = new Intent(FillInActivity.this, FillInActivity.class);
                 startActivity(typeOfQuizIntent);
@@ -88,5 +91,13 @@ public class FillInActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @return answer from user input
+     */
+    private String getAnswer() {
+        EditText text = (EditText) findViewById(R.id.fill_in_option);
+        String answer = text.getText().toString();
+        return answer;
+    }
 
 }
