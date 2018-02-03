@@ -4,6 +4,8 @@
 
 
     <string name="true_false">True / False</string>
+    <string name="tekst_true">True</string>
+    <string name="tekst_false">False</string>
     <string name="single_choice">Single choice</string>
     <string name="fill_in_the_blank">Fill in the blank</string>
     <string name="prompt_text">Choose type of quiz:</string>

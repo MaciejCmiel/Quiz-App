@@ -20,6 +20,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        boolean mYesNoAnswer;
         int chosenType = getIntent().getIntExtra("TYPE", 1);
 
         ArrayList<Question> questions = new ArrayList<Question>();
@@ -30,13 +31,26 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (chosenType == 1) {
-            questions.add(new Question("Stive Jobs is the founder of Microsoft", "no"));
+            questions.add(new Question("Stive Jobs is the founder of Microsoft", "false"));
             questions.add(new Question("Albert Einstein failed every subject in school that wasn't math or physics.", "yes"));
             questions.add(new Question("Bill Gates is the founder of Microsoft.", "yes"));
             questions.add(new Question("Tea has more caffeine than soda and coffee", "no"));
 
             singleChoice.setVisibility(View.GONE);
             fillIn.setVisibility(View.GONE);
+
+            Random generator = new Random();
+            int rand = generator.nextInt(questions.size());
+
+            TextView questionTextView = findViewById(R.id.question_text_view);
+            questionTextView.setText(questions.get(rand).getQuestion());
+
+            String answer = questions.get(rand).getAnswer();
+            if(answer.equals("yes")){
+                mYesNoAnswer = true;
+            } else {
+                mYesNoAnswer = false;
+            }
 
 
         } else if (chosenType == 2) {
@@ -49,9 +63,10 @@ public class QuizActivity extends AppCompatActivity {
             trueFalse.setVisibility(View.GONE);
             fillIn.setVisibility(View.GONE);
 
-            Random generator = new Random();
             int scope = questions.size() - 1;
-            int rand = generator.nextInt(scope + 1);
+            Random generator = new Random();
+            int rand = generator.nextInt(questions.size());
+
             Log.i(QuizActivity.class.getName(), "TEST: rand= " + rand);
             int secondRand = 0;
             int thirdRand = 0;
@@ -81,14 +96,21 @@ public class QuizActivity extends AppCompatActivity {
             thirdAnswer.setText(questions.get(thirdRand).getAnswer());
 
         } else if (chosenType == 3) {
-            questions.add(new Question("How many is 12 to the power of 2?", "144"));
-            questions.add(new Question("How many is 13 to the power of 2?", "169"));
-            questions.add(new Question("How many is 14 to the power of 2?", "196"));
-            questions.add(new Question("How many is 15 to the power of 2?", "255"));
+            questions.add(new Question("Battle of Trafalagar.", "1805"));
+            questions.add(new Question("Assassination of Abraham Lincoln.", "1865"));
+            questions.add(new Question("Beginning of the American Civil War.", "1861"));
+            questions.add(new Question("Roentgen discovered X-Rays.", "1895"));
 
             trueFalse.setVisibility(View.GONE);
             singleChoice.setVisibility(View.GONE);
 
+            Random generator = new Random();
+            int rand = generator.nextInt(questions.size());
+
+            TextView questionTextView = findViewById(R.id.question_text_view);
+            questionTextView.setText(questions.get(rand).getQuestion());
+
+            String answer = questions.get(rand).getAnswer();
 
         }
     }
