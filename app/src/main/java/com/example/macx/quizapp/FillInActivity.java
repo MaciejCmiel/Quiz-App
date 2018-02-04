@@ -62,7 +62,7 @@ public class FillInActivity extends AppCompatActivity {
         TextView questionTextView = findViewById(R.id.question_text_view);
         questionTextView.setText(questions.get(rand).getQuestion());
 
-         mAnswer = questions.get(rand).getAnswer();
+        mAnswer = questions.get(rand).getAnswer();
 
         //Find the Button and Set click listener on that Button
         Button backMenu = findViewById(R.id.back_to_menu);
@@ -84,7 +84,7 @@ public class FillInActivity extends AppCompatActivity {
 
                 // check if user answer is equal to correct answer
                 // and inform user about good or wrong answer
-                if(mAnswer.equals(getAnswer())){
+                if (mAnswer.equals(getAnswer())) {
                     Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();

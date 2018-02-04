@@ -104,9 +104,10 @@ public class TrueFalseActivity extends AppCompatActivity {
 
     /**
      * public method to check Button
+     *
      * @param view
      */
-    public void checkButton (View view){
+    public void checkButton(View view) {
         int radioId = trueFalse.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
     }
