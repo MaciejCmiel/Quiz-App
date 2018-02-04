@@ -11,7 +11,7 @@
     <string name="prompt_text">Choose type of quiz:</string>
     <string name="check_answer">Check answer</string>
     <string name="menu_text">Menu</string>
-    <string name="answer_text">Answer</string>
+    <string name="answer_text">Put your answer here</string>
 
 
 </resources>

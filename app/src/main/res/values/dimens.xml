@@ -4,7 +4,7 @@
 
     <dimen name="side_margin">64dp</dimen>
 
-    <dimen name="min_height">440</dimen>
+    <dimen name="min_height">440dp</dimen>
 
 
 </resources>

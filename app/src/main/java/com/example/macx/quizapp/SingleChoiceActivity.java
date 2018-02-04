@@ -118,21 +118,27 @@ public class SingleChoiceActivity extends AppCompatActivity {
                 int radioId = singleChoice.getCheckedRadioButtonId();
                 Log.i(SingleChoiceActivity.class.getName(), "TEST: " + radioId);
 
-                //find checked radio button by id and get text from this button
-                radioButton = findViewById(radioId);
-                mCheckedAnswer = radioButton.getText().toString();
 
-                Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + mAnswer);
-
-                // check if user answer is equal to correct answer and inform about it by Toast message
-                if (mCheckedAnswer.equals(mAnswer)) {
-                    Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                if (radioId == -1){
+                    Toast.makeText(getApplicationContext(), "You must pick answer!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+
+                    //find checked radio button by id and get text from this button
+                    radioButton = findViewById(radioId);
+                    mCheckedAnswer = radioButton.getText().toString();
+
+                    Log.i(SingleChoiceActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + mAnswer);
+
+                    // check if user answer is equal to correct answer and inform about it by Toast message
+                    if (mCheckedAnswer.equals(mAnswer)) {
+                        Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+                    }
+                    // Create a new intent to open again SingleChoiceActivity with another question
+                    Intent typeOfQuizIntent = new Intent(SingleChoiceActivity.this, SingleChoiceActivity.class);
+                    startActivity(typeOfQuizIntent);
                 }
-                // Create a new intent to open again SingleChoiceActivity with another question
-                Intent typeOfQuizIntent = new Intent(SingleChoiceActivity.this, SingleChoiceActivity.class);
-                startActivity(typeOfQuizIntent);
             }
         });
     }

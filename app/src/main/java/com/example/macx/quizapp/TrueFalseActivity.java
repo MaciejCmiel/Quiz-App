@@ -81,23 +81,29 @@ public class TrueFalseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //get the id of checked radio button, find it, and get Text from it
+                //get the id of checked radio button
                 int radioId = trueFalse.getCheckedRadioButtonId();
-                radioButton = findViewById(radioId);
-                mCheckedAnswer = radioButton.getText().toString();
 
-                Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + mAnswer);
-
-                // check if user answer is equal to correct answer and inform about it by Toast message
-                if (mCheckedAnswer.equals(mAnswer)) {
-                    Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                if (radioId == -1) {
+                    Toast.makeText(getApplicationContext(), "You must pick answer!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
-                }
 
-                // Create a new intent to open again TrueFalseActivity with another question
-                Intent typeOfQuizIntent = new Intent(TrueFalseActivity.this, TrueFalseActivity.class);
-                startActivity(typeOfQuizIntent);
+                    radioButton = findViewById(radioId);
+                    mCheckedAnswer = radioButton.getText().toString();
+
+                    Log.i(TrueFalseActivity.class.getName(), "TEST: m: " + mCheckedAnswer + " answer: " + mAnswer);
+
+                    // check if user answer is equal to correct answer and inform about it by Toast message
+                    if (mCheckedAnswer.equals(mAnswer)) {
+                        Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    // Create a new intent to open again TrueFalseActivity with another question
+                    Intent typeOfQuizIntent = new Intent(TrueFalseActivity.this, TrueFalseActivity.class);
+                    startActivity(typeOfQuizIntent);
+                }
             }
         });
     }
