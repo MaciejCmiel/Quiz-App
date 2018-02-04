@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="fitStart"
-        android:src="@drawable/quiztime" />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            style="@style/CategoryStyle"
-            android:text="@string/prompt_text"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@android:color/black" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:src="@drawable/quiztime" />
 
-        <TextView
-            android:id="@+id/true_false_text_view"
-            style="@style/CategoryStyle"
-            android:background="@drawable/type_of_quiz"
-            android:text="@string/true_false" />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/single_choice_text_view"
-            style="@style/CategoryStyle"
-            android:background="@drawable/type_of_quiz"
-            android:text="@string/single_choice" />
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/prompt_text"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@android:color/black" />
 
-        <TextView
-            android:id="@+id/fill_in_text_view"
-            style="@style/CategoryStyle"
-            android:background="@drawable/type_of_quiz"
-            android:text="@string/fill_in_the_blank" />
+            <TextView
+                android:id="@+id/true_false_text_view"
+                style="@style/CategoryStyle"
+                android:background="@drawable/type_of_quiz"
+                android:text="@string/true_false" />
+
+            <TextView
+                android:id="@+id/single_choice_text_view"
+                style="@style/CategoryStyle"
+                android:background="@drawable/type_of_quiz"
+                android:text="@string/single_choice" />
+
+            <TextView
+                android:id="@+id/fill_in_text_view"
+                style="@style/CategoryStyle"
+                android:background="@drawable/type_of_quiz"
+                android:text="@string/fill_in_the_blank" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</ScrollView>

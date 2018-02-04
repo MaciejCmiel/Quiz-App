@@ -9,5 +9,9 @@
     <string name="single_choice">Single choice</string>
     <string name="fill_in_the_blank">Fill in the blank</string>
     <string name="prompt_text">Choose type of quiz:</string>
+    <string name="check_answer">Check answer</string>
+    <string name="menu_text">Menu</string>
+    <string name="answer_text">Answer</string>
+
 
 </resources>
