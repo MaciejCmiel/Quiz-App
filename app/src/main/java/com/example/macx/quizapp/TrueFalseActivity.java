@@ -26,14 +26,18 @@ public class TrueFalseActivity extends AppCompatActivity {
     View fillIn;
 
     //variable to store user answer
-    String mCheckedAnswer;
+    private String mCheckedAnswer;
     // variable to store correct answer
-    String mAnswer;
+    private String mAnswer;
+    // variable to store number of good answers
+    private int mCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        mCounter = getIntent().getIntExtra("COUNTER", 0);
 
         ArrayList<Question> questions = new ArrayList<Question>();
 
@@ -95,13 +99,15 @@ public class TrueFalseActivity extends AppCompatActivity {
 
                     // check if user answer is equal to correct answer and inform about it by Toast message
                     if (mCheckedAnswer.equals(mAnswer)) {
-                        Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                        mCounter++;
+                        Toast.makeText(getApplicationContext(), mCounter + " good Answer!", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
                     }
 
                     // Create a new intent to open again TrueFalseActivity with another question
                     Intent typeOfQuizIntent = new Intent(TrueFalseActivity.this, TrueFalseActivity.class);
+                    typeOfQuizIntent.putExtra("COUNTER", mCounter);
                     startActivity(typeOfQuizIntent);
                 }
             }

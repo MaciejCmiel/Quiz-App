@@ -24,13 +24,16 @@ public class FillInActivity extends AppCompatActivity {
     View fillIn;
 
     // variable to store correct answer
-    String mAnswer;
+    private String mAnswer;
+    // variable to store number of good answers
+    private int mCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        mCounter = getIntent().getIntExtra("COUNTER", 0);
 
         ArrayList<Question> questions = new ArrayList<Question>();
 
@@ -39,7 +42,7 @@ public class FillInActivity extends AppCompatActivity {
         fillIn = findViewById(R.id.fill_in_option);
 
 
-        questions.add(new Question("Battle of Trafalagar.", "1805"));
+        questions.add(new Question("Battle of Trafalgar.", "1805"));
         questions.add(new Question("Assassination of Abraham Lincoln.", "1865"));
         questions.add(new Question("Beginning of the American Civil War.", "1861"));
         questions.add(new Question("Roentgen discovered X-Rays.", "1895"));
@@ -85,12 +88,15 @@ public class FillInActivity extends AppCompatActivity {
                 // check if user answer is equal to correct answer
                 // and inform user about good or wrong answer
                 if (mAnswer.equals(getAnswer())) {
-                    Toast.makeText(getApplicationContext(), "Good Answer!", Toast.LENGTH_SHORT).show();
+                    mCounter++;
+                    Toast.makeText(getApplicationContext(), mCounter + " good Answer!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
                 }
                 // Create a new intent to open again FillInActivity with another question
                 Intent typeOfQuizIntent = new Intent(FillInActivity.this, FillInActivity.class);
+                typeOfQuizIntent.putExtra("COUNTER", mCounter);
+
                 startActivity(typeOfQuizIntent);
             }
         });
